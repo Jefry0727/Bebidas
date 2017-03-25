@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model_tallerBebidasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="presentacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mililitros" Type="Double" Nullable="false" />
+    <Property Name="valor_presentacion" Type="Double" Nullable="false" />
+    <NavigationProperty Name="produccion" Relationship="Self.produccion_presentacion_FK" FromRole="presentacion" ToRole="produccion" />
+  </EntityType>
+  <EntityType Name="produccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo_lote" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="comentarios" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="presentacion_id" Type="Int32" Nullable="false" />
+    <Property Name="tipo_cerveza_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="presentacion" Relationship="Self.produccion_presentacion_FK" FromRole="produccion" ToRole="presentacion" />
+    <NavigationProperty Name="tipo_cerveza" Relationship="Self.produccion_tipo_cerveza_FK" FromRole="produccion" ToRole="tipo_cerveza" />
+  </EntityType>
+  <EntityType Name="tipo_cerveza">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="alcohol" Type="Double" Nullable="false" />
+    <NavigationProperty Name="produccion" Relationship="Self.produccion_tipo_cerveza_FK" FromRole="tipo_cerveza" ToRole="produccion" />
+  </EntityType>
+  <Association Name="produccion_presentacion_FK">
+    <End Role="presentacion" Type="Self.presentacion" Multiplicity="1" />
+    <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presentacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="produccion">
+        <PropertyRef Name="presentacion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="produccion_tipo_cerveza_FK">
+    <End Role="tipo_cerveza" Type="Self.tipo_cerveza" Multiplicity="1" />
+    <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_cerveza">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="produccion">
+        <PropertyRef Name="tipo_cerveza_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entity_tallerBebidasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="presentacion" EntityType="Self.presentacion" />
+    <EntitySet Name="produccion" EntityType="Self.produccion" />
+    <EntitySet Name="tipo_cerveza" EntityType="Self.tipo_cerveza" />
+    <AssociationSet Name="produccion_presentacion_FK" Association="Self.produccion_presentacion_FK">
+      <End Role="presentacion" EntitySet="presentacion" />
+      <End Role="produccion" EntitySet="produccion" />
+    </AssociationSet>
+    <AssociationSet Name="produccion_tipo_cerveza_FK" Association="Self.produccion_tipo_cerveza_FK">
+      <End Role="tipo_cerveza" EntitySet="tipo_cerveza" />
+      <End Role="produccion" EntitySet="produccion" />
+    </AssociationSet>
+    <FunctionImport Name="borrarPresentacion">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="borrarProduccion">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="borrarTipoCerveza">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="buscarPresentacion" ReturnType="Collection(Model_tallerBebidasModel.buscarPresentacion_Result)">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="buscarProduccionV2" ReturnType="Collection(Model_tallerBebidasModel.buscarProduccionV2_Result)">
+      <Parameter Name="codigo_lote" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="buscarTipoCerveza" ReturnType="Collection(Model_tallerBebidasModel.buscarTipoCerveza_Result)">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="editarPresentacion">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="mililitros" Mode="In" Type="Double" />
+      <Parameter Name="valor_presentacion" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="editarProduccion">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="codigo_lote" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="String" />
+      <Parameter Name="comentarios" Mode="In" Type="String" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="presentacion_id" Mode="In" Type="Int32" />
+      <Parameter Name="tipo_cerveza_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="editarTipoCerveza">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="alcohol" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="guardarPresentacion">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="mililitros" Mode="In" Type="Double" />
+      <Parameter Name="valor_presentacion" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="guardarProduccion">
+      <Parameter Name="codigo_lote" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="String" />
+      <Parameter Name="comentarios" Mode="In" Type="String" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="presentacion_id" Mode="In" Type="Int32" />
+      <Parameter Name="tipo_cerveza_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="guardarTipoCerveza">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="alcohol" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="listarPresentacion" ReturnType="Collection(Model_tallerBebidasModel.listarPresentacion_Result)" />
+    <FunctionImport Name="listarProduccionV2" ReturnType="Collection(Model_tallerBebidasModel.listarProduccionV2_Result)" />
+    <FunctionImport Name="listarTipoCerveza" ReturnType="Collection(Model_tallerBebidasModel.listarTipoCerveza_Result)" />
+  </EntityContainer>
+  <ComplexType Name="buscarPresentacion_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+    <Property Type="Double" Name="mililitros" Nullable="false" />
+    <Property Type="Double" Name="valor_presentacion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="buscarProduccionV2_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="codigo_lote" Nullable="false" MaxLength="45" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" />
+    <Property Type="String" Name="comentarios" Nullable="false" MaxLength="45" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Int32" Name="presentacion_id" Nullable="false" />
+    <Property Type="Int32" Name="tipo_cerveza_id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="buscarTipoCerveza_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+    <Property Type="Double" Name="alcohol" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="listarPresentacion_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+    <Property Type="Double" Name="mililitros" Nullable="false" />
+    <Property Type="Double" Name="valor_presentacion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="listarProduccionV2_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="codigo_lote" Nullable="false" MaxLength="45" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" />
+    <Property Type="String" Name="comentarios" Nullable="false" MaxLength="45" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Int32" Name="presentacion_id" Nullable="false" />
+    <Property Type="Int32" Name="tipo_cerveza_id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="listarTipoCerveza_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+    <Property Type="Double" Name="alcohol" Nullable="false" />
+  </ComplexType>
+</Schema>

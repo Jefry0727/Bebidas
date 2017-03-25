@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model_tallerBebidasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="presentacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="mililitros" Type="float" Nullable="false" />
+    <Property Name="valor_presentacion" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="produccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_lote" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="comentarios" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="presentacion_id" Type="int" Nullable="false" />
+    <Property Name="tipo_cerveza_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo_cerveza">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="alcohol" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="produccion_presentacion_FK">
+    <End Role="presentacion" Type="Self.presentacion" Multiplicity="1" />
+    <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presentacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="produccion">
+        <PropertyRef Name="presentacion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="produccion_tipo_cerveza_FK">
+    <End Role="tipo_cerveza" Type="Self.tipo_cerveza" Multiplicity="1" />
+    <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_cerveza">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="produccion">
+        <PropertyRef Name="tipo_cerveza_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="borrarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="borrarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="borrarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="buscarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="buscarProduccionV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="buscarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="editarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="mililitros" Type="float" Mode="In" />
+    <Parameter Name="valor_presentacion" Type="float" Mode="In" />
+  </Function>
+  <Function Name="editarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
+    <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
+    <Parameter Name="cantidad" Type="int" Mode="In" />
+    <Parameter Name="presentacion_id" Type="int" Mode="In" />
+    <Parameter Name="tipo_cerveza_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="editarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="alcohol" Type="float" Mode="In" />
+  </Function>
+  <Function Name="guardarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="mililitros" Type="float" Mode="In" />
+    <Parameter Name="valor_presentacion" Type="float" Mode="In" />
+  </Function>
+  <Function Name="guardarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
+    <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
+    <Parameter Name="cantidad" Type="int" Mode="In" />
+    <Parameter Name="presentacion_id" Type="int" Mode="In" />
+    <Parameter Name="tipo_cerveza_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="guardarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="alcohol" Type="float" Mode="In" />
+  </Function>
+  <Function Name="listarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="listarProduccionV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="listarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Model_tallerBebidasModelStoreContainer">
+    <EntitySet Name="presentacion" EntityType="Self.presentacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="produccion" EntityType="Self.produccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_cerveza" EntityType="Self.tipo_cerveza" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="produccion_presentacion_FK" Association="Self.produccion_presentacion_FK">
+      <End Role="presentacion" EntitySet="presentacion" />
+      <End Role="produccion" EntitySet="produccion" />
+    </AssociationSet>
+    <AssociationSet Name="produccion_tipo_cerveza_FK" Association="Self.produccion_tipo_cerveza_FK">
+      <End Role="tipo_cerveza" EntitySet="tipo_cerveza" />
+      <End Role="produccion" EntitySet="produccion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

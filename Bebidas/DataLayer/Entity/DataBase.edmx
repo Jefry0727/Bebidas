@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model_tallerBebidasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="presentacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="mililitros" Type="float" Nullable="false" />
+          <Property Name="valor_presentacion" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="produccion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_lote" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="comentarios" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="presentacion_id" Type="int" Nullable="false" />
+          <Property Name="tipo_cerveza_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_cerveza">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="alcohol" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="produccion_presentacion_FK">
+          <End Role="presentacion" Type="Self.presentacion" Multiplicity="1" />
+          <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="presentacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produccion">
+              <PropertyRef Name="presentacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="produccion_tipo_cerveza_FK">
+          <End Role="tipo_cerveza" Type="Self.tipo_cerveza" Multiplicity="1" />
+          <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_cerveza">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produccion">
+              <PropertyRef Name="tipo_cerveza_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="borrarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="borrarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="borrarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="buscarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="buscarProduccionV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="buscarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="editarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="mililitros" Type="float" Mode="In" />
+          <Parameter Name="valor_presentacion" Type="float" Mode="In" />
+        </Function>
+        <Function Name="editarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
+          <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+          <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
+          <Parameter Name="cantidad" Type="int" Mode="In" />
+          <Parameter Name="presentacion_id" Type="int" Mode="In" />
+          <Parameter Name="tipo_cerveza_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="editarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="alcohol" Type="float" Mode="In" />
+        </Function>
+        <Function Name="guardarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="mililitros" Type="float" Mode="In" />
+          <Parameter Name="valor_presentacion" Type="float" Mode="In" />
+        </Function>
+        <Function Name="guardarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
+          <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+          <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
+          <Parameter Name="cantidad" Type="int" Mode="In" />
+          <Parameter Name="presentacion_id" Type="int" Mode="In" />
+          <Parameter Name="tipo_cerveza_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="guardarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="alcohol" Type="float" Mode="In" />
+        </Function>
+        <Function Name="listarPresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="listarProduccionV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="listarTipoCerveza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Model_tallerBebidasModelStoreContainer">
+          <EntitySet Name="presentacion" EntityType="Self.presentacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="produccion" EntityType="Self.produccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_cerveza" EntityType="Self.tipo_cerveza" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="produccion_presentacion_FK" Association="Self.produccion_presentacion_FK">
+            <End Role="presentacion" EntitySet="presentacion" />
+            <End Role="produccion" EntitySet="produccion" />
+          </AssociationSet>
+          <AssociationSet Name="produccion_tipo_cerveza_FK" Association="Self.produccion_tipo_cerveza_FK">
+            <End Role="tipo_cerveza" EntitySet="tipo_cerveza" />
+            <End Role="produccion" EntitySet="produccion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model_tallerBebidasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="presentacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mililitros" Type="Double" Nullable="false" />
+          <Property Name="valor_presentacion" Type="Double" Nullable="false" />
+          <NavigationProperty Name="produccion" Relationship="Self.produccion_presentacion_FK" FromRole="presentacion" ToRole="produccion" />
+        </EntityType>
+        <EntityType Name="produccion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_lote" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="comentarios" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="presentacion_id" Type="Int32" Nullable="false" />
+          <Property Name="tipo_cerveza_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="presentacion" Relationship="Self.produccion_presentacion_FK" FromRole="produccion" ToRole="presentacion" />
+          <NavigationProperty Name="tipo_cerveza" Relationship="Self.produccion_tipo_cerveza_FK" FromRole="produccion" ToRole="tipo_cerveza" />
+        </EntityType>
+        <EntityType Name="tipo_cerveza">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="alcohol" Type="Double" Nullable="false" />
+          <NavigationProperty Name="produccion" Relationship="Self.produccion_tipo_cerveza_FK" FromRole="tipo_cerveza" ToRole="produccion" />
+        </EntityType>
+        <Association Name="produccion_presentacion_FK">
+          <End Role="presentacion" Type="Self.presentacion" Multiplicity="1" />
+          <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="presentacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produccion">
+              <PropertyRef Name="presentacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="produccion_tipo_cerveza_FK">
+          <End Role="tipo_cerveza" Type="Self.tipo_cerveza" Multiplicity="1" />
+          <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_cerveza">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produccion">
+              <PropertyRef Name="tipo_cerveza_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entity_tallerBebidasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="presentacion" EntityType="Self.presentacion" />
+          <EntitySet Name="produccion" EntityType="Self.produccion" />
+          <EntitySet Name="tipo_cerveza" EntityType="Self.tipo_cerveza" />
+          <AssociationSet Name="produccion_presentacion_FK" Association="Self.produccion_presentacion_FK">
+            <End Role="presentacion" EntitySet="presentacion" />
+            <End Role="produccion" EntitySet="produccion" />
+          </AssociationSet>
+          <AssociationSet Name="produccion_tipo_cerveza_FK" Association="Self.produccion_tipo_cerveza_FK">
+            <End Role="tipo_cerveza" EntitySet="tipo_cerveza" />
+            <End Role="produccion" EntitySet="produccion" />
+          </AssociationSet>
+          <FunctionImport Name="borrarPresentacion">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="borrarProduccion">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="borrarTipoCerveza">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="buscarPresentacion" ReturnType="Collection(Model_tallerBebidasModel.buscarPresentacion_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="buscarProduccionV2" ReturnType="Collection(Model_tallerBebidasModel.buscarProduccionV2_Result)">
+            <Parameter Name="codigo_lote" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="buscarTipoCerveza" ReturnType="Collection(Model_tallerBebidasModel.buscarTipoCerveza_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="editarPresentacion">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="mililitros" Mode="In" Type="Double" />
+            <Parameter Name="valor_presentacion" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="editarProduccion">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="codigo_lote" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="comentarios" Mode="In" Type="String" />
+            <Parameter Name="cantidad" Mode="In" Type="Int32" />
+            <Parameter Name="presentacion_id" Mode="In" Type="Int32" />
+            <Parameter Name="tipo_cerveza_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="editarTipoCerveza">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="alcohol" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="guardarPresentacion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="mililitros" Mode="In" Type="Double" />
+            <Parameter Name="valor_presentacion" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="guardarProduccion">
+            <Parameter Name="codigo_lote" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="comentarios" Mode="In" Type="String" />
+            <Parameter Name="cantidad" Mode="In" Type="Int32" />
+            <Parameter Name="presentacion_id" Mode="In" Type="Int32" />
+            <Parameter Name="tipo_cerveza_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="guardarTipoCerveza">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="alcohol" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="listarPresentacion" ReturnType="Collection(Model_tallerBebidasModel.listarPresentacion_Result)" />
+          <FunctionImport Name="listarProduccionV2" ReturnType="Collection(Model_tallerBebidasModel.listarProduccionV2_Result)" />
+          <FunctionImport Name="listarTipoCerveza" ReturnType="Collection(Model_tallerBebidasModel.listarTipoCerveza_Result)" />
+        </EntityContainer>
+        <ComplexType Name="buscarPresentacion_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+          <Property Type="Double" Name="mililitros" Nullable="false" />
+          <Property Type="Double" Name="valor_presentacion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="buscarProduccionV2_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="codigo_lote" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" />
+          <Property Type="String" Name="comentarios" Nullable="false" MaxLength="45" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Int32" Name="presentacion_id" Nullable="false" />
+          <Property Type="Int32" Name="tipo_cerveza_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="buscarTipoCerveza_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="Double" Name="alcohol" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="listarPresentacion_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+          <Property Type="Double" Name="mililitros" Nullable="false" />
+          <Property Type="Double" Name="valor_presentacion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="listarProduccionV2_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="codigo_lote" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" />
+          <Property Type="String" Name="comentarios" Nullable="false" MaxLength="45" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Int32" Name="presentacion_id" Nullable="false" />
+          <Property Type="Int32" Name="tipo_cerveza_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="listarTipoCerveza_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="Double" Name="alcohol" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model_tallerBebidasModelStoreContainer" CdmEntityContainer="Entity_tallerBebidasEntities">
+          <EntitySetMapping Name="presentacion">
+            <EntityTypeMapping TypeName="Model_tallerBebidasModel.presentacion">
+              <MappingFragment StoreEntitySet="presentacion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="mililitros" ColumnName="mililitros" />
+                <ScalarProperty Name="valor_presentacion" ColumnName="valor_presentacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produccion">
+            <EntityTypeMapping TypeName="Model_tallerBebidasModel.produccion">
+              <MappingFragment StoreEntitySet="produccion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo_lote" ColumnName="codigo_lote" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="presentacion_id" ColumnName="presentacion_id" />
+                <ScalarProperty Name="tipo_cerveza_id" ColumnName="tipo_cerveza_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_cerveza">
+            <EntityTypeMapping TypeName="Model_tallerBebidasModel.tipo_cerveza">
+              <MappingFragment StoreEntitySet="tipo_cerveza">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="alcohol" ColumnName="alcohol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="borrarPresentacion" FunctionName="Model_tallerBebidasModel.Store.borrarPresentacion" />
+          <FunctionImportMapping FunctionImportName="borrarProduccion" FunctionName="Model_tallerBebidasModel.Store.borrarProduccion" />
+          <FunctionImportMapping FunctionImportName="borrarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.borrarTipoCerveza" />
+          <FunctionImportMapping FunctionImportName="buscarPresentacion" FunctionName="Model_tallerBebidasModel.Store.buscarPresentacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model_tallerBebidasModel.buscarPresentacion_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="mililitros" ColumnName="mililitros" />
+                <ScalarProperty Name="valor_presentacion" ColumnName="valor_presentacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="buscarProduccionV2" FunctionName="Model_tallerBebidasModel.Store.buscarProduccionV2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model_tallerBebidasModel.buscarProduccionV2_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo_lote" ColumnName="codigo_lote" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="presentacion_id" ColumnName="presentacion_id" />
+                <ScalarProperty Name="tipo_cerveza_id" ColumnName="tipo_cerveza_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="buscarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.buscarTipoCerveza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model_tallerBebidasModel.buscarTipoCerveza_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="alcohol" ColumnName="alcohol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="editarPresentacion" FunctionName="Model_tallerBebidasModel.Store.editarPresentacion" />
+          <FunctionImportMapping FunctionImportName="editarProduccion" FunctionName="Model_tallerBebidasModel.Store.editarProduccion" />
+          <FunctionImportMapping FunctionImportName="editarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.editarTipoCerveza" />
+          <FunctionImportMapping FunctionImportName="guardarPresentacion" FunctionName="Model_tallerBebidasModel.Store.guardarPresentacion" />
+          <FunctionImportMapping FunctionImportName="guardarProduccion" FunctionName="Model_tallerBebidasModel.Store.guardarProduccion" />
+          <FunctionImportMapping FunctionImportName="guardarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.guardarTipoCerveza" />
+          <FunctionImportMapping FunctionImportName="listarPresentacion" FunctionName="Model_tallerBebidasModel.Store.listarPresentacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model_tallerBebidasModel.listarPresentacion_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="mililitros" ColumnName="mililitros" />
+                <ScalarProperty Name="valor_presentacion" ColumnName="valor_presentacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="listarProduccionV2" FunctionName="Model_tallerBebidasModel.Store.listarProduccionV2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model_tallerBebidasModel.listarProduccionV2_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo_lote" ColumnName="codigo_lote" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="presentacion_id" ColumnName="presentacion_id" />
+                <ScalarProperty Name="tipo_cerveza_id" ColumnName="tipo_cerveza_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="listarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.listarTipoCerveza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model_tallerBebidasModel.listarTipoCerveza_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="alcohol" ColumnName="alcohol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

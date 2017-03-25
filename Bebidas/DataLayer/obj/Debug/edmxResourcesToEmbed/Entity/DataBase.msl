@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model_tallerBebidasModelStoreContainer" CdmEntityContainer="Entity_tallerBebidasEntities">
+    <EntitySetMapping Name="presentacion">
+      <EntityTypeMapping TypeName="Model_tallerBebidasModel.presentacion">
+        <MappingFragment StoreEntitySet="presentacion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="mililitros" ColumnName="mililitros" />
+          <ScalarProperty Name="valor_presentacion" ColumnName="valor_presentacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produccion">
+      <EntityTypeMapping TypeName="Model_tallerBebidasModel.produccion">
+        <MappingFragment StoreEntitySet="produccion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo_lote" ColumnName="codigo_lote" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="presentacion_id" ColumnName="presentacion_id" />
+          <ScalarProperty Name="tipo_cerveza_id" ColumnName="tipo_cerveza_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_cerveza">
+      <EntityTypeMapping TypeName="Model_tallerBebidasModel.tipo_cerveza">
+        <MappingFragment StoreEntitySet="tipo_cerveza">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="alcohol" ColumnName="alcohol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="borrarPresentacion" FunctionName="Model_tallerBebidasModel.Store.borrarPresentacion" />
+    <FunctionImportMapping FunctionImportName="borrarProduccion" FunctionName="Model_tallerBebidasModel.Store.borrarProduccion" />
+    <FunctionImportMapping FunctionImportName="borrarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.borrarTipoCerveza" />
+    <FunctionImportMapping FunctionImportName="buscarPresentacion" FunctionName="Model_tallerBebidasModel.Store.buscarPresentacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model_tallerBebidasModel.buscarPresentacion_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="mililitros" ColumnName="mililitros" />
+          <ScalarProperty Name="valor_presentacion" ColumnName="valor_presentacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="buscarProduccionV2" FunctionName="Model_tallerBebidasModel.Store.buscarProduccionV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model_tallerBebidasModel.buscarProduccionV2_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo_lote" ColumnName="codigo_lote" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="presentacion_id" ColumnName="presentacion_id" />
+          <ScalarProperty Name="tipo_cerveza_id" ColumnName="tipo_cerveza_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="buscarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.buscarTipoCerveza">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model_tallerBebidasModel.buscarTipoCerveza_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="alcohol" ColumnName="alcohol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="editarPresentacion" FunctionName="Model_tallerBebidasModel.Store.editarPresentacion" />
+    <FunctionImportMapping FunctionImportName="editarProduccion" FunctionName="Model_tallerBebidasModel.Store.editarProduccion" />
+    <FunctionImportMapping FunctionImportName="editarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.editarTipoCerveza" />
+    <FunctionImportMapping FunctionImportName="guardarPresentacion" FunctionName="Model_tallerBebidasModel.Store.guardarPresentacion" />
+    <FunctionImportMapping FunctionImportName="guardarProduccion" FunctionName="Model_tallerBebidasModel.Store.guardarProduccion" />
+    <FunctionImportMapping FunctionImportName="guardarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.guardarTipoCerveza" />
+    <FunctionImportMapping FunctionImportName="listarPresentacion" FunctionName="Model_tallerBebidasModel.Store.listarPresentacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model_tallerBebidasModel.listarPresentacion_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="mililitros" ColumnName="mililitros" />
+          <ScalarProperty Name="valor_presentacion" ColumnName="valor_presentacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="listarProduccionV2" FunctionName="Model_tallerBebidasModel.Store.listarProduccionV2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model_tallerBebidasModel.listarProduccionV2_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo_lote" ColumnName="codigo_lote" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="presentacion_id" ColumnName="presentacion_id" />
+          <ScalarProperty Name="tipo_cerveza_id" ColumnName="tipo_cerveza_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="listarTipoCerveza" FunctionName="Model_tallerBebidasModel.Store.listarTipoCerveza">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model_tallerBebidasModel.listarTipoCerveza_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="alcohol" ColumnName="alcohol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
