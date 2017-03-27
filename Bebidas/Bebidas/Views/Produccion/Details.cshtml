@@ -1,0 +1,66 @@
+﻿@model DataLayer.Entity.produccion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Producción</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo_lote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_lote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.presentacion.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.presentacion.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_cerveza.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_cerveza.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

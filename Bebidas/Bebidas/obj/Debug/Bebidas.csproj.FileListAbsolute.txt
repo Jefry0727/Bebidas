@@ -35,3 +35,42 @@ C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\Bebidas\bin\es\Syst
 C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\Bebidas\obj\Debug\Bebidas.csprojResolveAssemblyReference.cache
 C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\Bebidas\obj\Debug\Bebidas.dll
 C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\Bebidas\obj\Debug\Bebidas.pdb
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Bebidas.dll.config
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Bebidas.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Bebidas.pdb
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Antlr3.Runtime.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\DataLayer.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\EntityFramework.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\EntityFramework.SqlServer.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Newtonsoft.Json.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Helpers.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Mvc.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Optimization.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Razor.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.WebPages.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.WebPages.Razor.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\WebGrease.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\DataLayer.pdb
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\EntityFramework.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\EntityFramework.SqlServer.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Helpers.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Mvc.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Optimization.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.Razor.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.WebPages.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\System.Web.WebPages.Razor.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Newtonsoft.Json.xml
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\Antlr3.Runtime.pdb
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\es\System.Web.Razor.resources.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\obj\Debug\Bebidas.csprojResolveAssemblyReference.cache
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\obj\Debug\Bebidas.dll
+C:\Users\Jefry\Source\Repos\Bebidas\Bebidas\Bebidas\obj\Debug\Bebidas.pdb

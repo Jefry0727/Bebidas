@@ -1,0 +1,48 @@
+﻿@model DataLayer.Entity.presentacion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Está seguro de Eliminar este registro?</h3>
+<div>
+    <h4>Presentación</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mililitros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mililitros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_presentacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_presentacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

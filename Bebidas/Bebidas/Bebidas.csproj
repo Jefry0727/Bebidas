@@ -39,10 +39,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -116,6 +122,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PresentacionController.cs" />
+    <Compile Include="Controllers\ProduccionController.cs" />
+    <Compile Include="Controllers\TipoCervezaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -154,6 +163,21 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Produccion\Create.cshtml" />
+    <Content Include="Views\Produccion\Delete.cshtml" />
+    <Content Include="Views\Produccion\Details.cshtml" />
+    <Content Include="Views\Produccion\Edit.cshtml" />
+    <Content Include="Views\Produccion\Index.cshtml" />
+    <Content Include="Views\Presentacion\Create.cshtml" />
+    <Content Include="Views\Presentacion\Delete.cshtml" />
+    <Content Include="Views\Presentacion\Details.cshtml" />
+    <Content Include="Views\Presentacion\Edit.cshtml" />
+    <Content Include="Views\Presentacion\Index.cshtml" />
+    <Content Include="Views\TipoCerveza\Create.cshtml" />
+    <Content Include="Views\TipoCerveza\Delete.cshtml" />
+    <Content Include="Views\TipoCerveza\Details.cshtml" />
+    <Content Include="Views\TipoCerveza\Edit.cshtml" />
+    <Content Include="Views\TipoCerveza\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

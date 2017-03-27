@@ -1,0 +1,42 @@
+﻿@model DataLayer.Entity.presentacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Presentación</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mililitros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mililitros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_presentacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_presentacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

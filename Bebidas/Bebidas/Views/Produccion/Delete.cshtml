@@ -1,0 +1,72 @@
+﻿@model DataLayer.Entity.produccion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Está seguro de Eliminar este registro?</h3>
+<div>
+    <h4>Producción</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo_lote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_lote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.presentacion.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.presentacion.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_cerveza.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_cerveza.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>
