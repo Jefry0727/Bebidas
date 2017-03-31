@@ -11,15 +11,22 @@ namespace DataLayer.Entity
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     
     public partial class produccion
     {
         public int id { get; set; }
+        [DisplayName("Codigo Lote")]
         public string codigo_lote { get; set; }
+        [DisplayName("Fecha")]
         public System.DateTime fecha { get; set; }
+        [DisplayName("Comentarios")]
         public string comentarios { get; set; }
+        [DisplayName("Cantidad")]
         public int cantidad { get; set; }
+        [DisplayName("Presentación")]
         public int presentacion_id { get; set; }
+        [DisplayName("Tipo Cerveza")]
         public int tipo_cerveza_id { get; set; }
     
         public virtual presentacion presentacion { get; set; }
