@@ -81,7 +81,7 @@
   <Function Name="editarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
     <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
-    <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
     <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
     <Parameter Name="cantidad" Type="int" Mode="In" />
     <Parameter Name="presentacion_id" Type="int" Mode="In" />
@@ -100,7 +100,7 @@
   </Function>
   <Function Name="guardarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
-    <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
     <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
     <Parameter Name="cantidad" Type="int" Mode="In" />
     <Parameter Name="presentacion_id" Type="int" Mode="In" />

@@ -8,3 +8,13 @@ C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\DataLayer\bin\Debug
 C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
 C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\DataLayer\obj\Debug\DataLayer.dll
 C:\Users\Jefry\Documents\Visual Studio 2013\Projects\Bebidas\DataLayer\obj\Debug\DataLayer.pdb
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\bin\Debug\DataLayer.dll.config
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\bin\Debug\DataLayer.dll
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\bin\Debug\DataLayer.pdb
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\Marcela\Source\Repos\Bebidas\Bebidas\DataLayer\obj\Debug\DataLayer.pdb

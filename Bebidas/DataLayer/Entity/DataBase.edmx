@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model_tallerBebidasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model_tallerBebidasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="presentacion">
           <Key>
             <PropertyRef Name="id" />
@@ -86,7 +86,7 @@
         <Function Name="editarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
-          <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
           <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
           <Parameter Name="cantidad" Type="int" Mode="In" />
           <Parameter Name="presentacion_id" Type="int" Mode="In" />
@@ -105,7 +105,7 @@
         </Function>
         <Function Name="guardarProduccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="codigo_lote" Type="nvarchar" Mode="In" />
-          <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
           <Parameter Name="comentarios" Type="nvarchar" Mode="In" />
           <Parameter Name="cantidad" Type="int" Mode="In" />
           <Parameter Name="presentacion_id" Type="int" Mode="In" />
@@ -132,8 +132,7 @@
             <End Role="produccion" EntitySet="produccion" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model_tallerBebidasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -208,22 +207,22 @@
             <End Role="produccion" EntitySet="produccion" />
           </AssociationSet>
           <FunctionImport Name="borrarPresentacion">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="borrarProduccion">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="borrarTipoCerveza">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="buscarPresentacion" ReturnType="Collection(Model_tallerBebidasModel.buscarPresentacion_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="buscarProduccionV2" ReturnType="Collection(Model_tallerBebidasModel.buscarProduccionV2_Result)">
-            <Parameter Name="codigo_lote" Mode="In" Type="String" />
+          <Parameter Name="codigo_lote" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="buscarTipoCerveza" ReturnType="Collection(Model_tallerBebidasModel.buscarTipoCerveza_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="editarPresentacion">
             <Parameter Name="id" Mode="In" Type="Int32" />
@@ -234,7 +233,7 @@
           <FunctionImport Name="editarProduccion">
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="codigo_lote" Mode="In" Type="String" />
-            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
             <Parameter Name="comentarios" Mode="In" Type="String" />
             <Parameter Name="cantidad" Mode="In" Type="Int32" />
             <Parameter Name="presentacion_id" Mode="In" Type="Int32" />
@@ -253,7 +252,7 @@
           </FunctionImport>
           <FunctionImport Name="guardarProduccion">
             <Parameter Name="codigo_lote" Mode="In" Type="String" />
-            <Parameter Name="fecha" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
             <Parameter Name="comentarios" Mode="In" Type="String" />
             <Parameter Name="cantidad" Mode="In" Type="Int32" />
             <Parameter Name="presentacion_id" Mode="In" Type="Int32" />
