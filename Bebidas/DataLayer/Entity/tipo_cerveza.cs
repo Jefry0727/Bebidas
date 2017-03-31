@@ -11,6 +11,7 @@ namespace DataLayer.Entity
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     
     public partial class tipo_cerveza
     {
@@ -20,8 +21,11 @@ namespace DataLayer.Entity
         }
     
         public int id { get; set; }
+        [DisplayName("Tipo Cerveza")]
         public string nombre { get; set; }
+        [DisplayName("Descripción")]
         public string descripcion { get; set; }
+        [DisplayName("Nivel Alcohol")]
         public double alcohol { get; set; }
     
         public virtual ICollection<produccion> produccion { get; set; }

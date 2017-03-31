@@ -53,8 +53,10 @@ namespace Bebidas.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.produccion.Add(produccion);
-                db.SaveChanges();
+                //db.produccion.Add(produccion);
+                //db.SaveChanges();
+               
+               db.guardarProduccion(produccion.codigo_lote, produccion.fecha, produccion.comentarios, produccion.cantidad, produccion.presentacion_id, produccion.tipo_cerveza_id);
                 return RedirectToAction("Index");
             }
 
@@ -89,8 +91,10 @@ namespace Bebidas.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produccion).State = EntityState.Modified;
-                db.SaveChanges();
+               // db.Entry(produccion).State = EntityState.Modified;
+                //db.SaveChanges();
+               
+                db.editarProduccion(produccion.id, produccion.codigo_lote, produccion.fecha, produccion.comentarios, produccion.cantidad, produccion.presentacion_id, produccion.tipo_cerveza_id);
                 return RedirectToAction("Index");
             }
             ViewBag.presentacion_id = new SelectList(db.presentacion, "id", "nombre", produccion.presentacion_id);
@@ -119,8 +123,9 @@ namespace Bebidas.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             produccion produccion = db.produccion.Find(id);
-            db.produccion.Remove(produccion);
-            db.SaveChanges();
+            //db.produccion.Remove(produccion);
+           // db.SaveChanges();
+            db.borrarProduccion(produccion.id);
             return RedirectToAction("Index");
         }
 

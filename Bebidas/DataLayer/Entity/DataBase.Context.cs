@@ -106,7 +106,7 @@ namespace DataLayer.Entity
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("editarPresentacion", idParameter, nombreParameter, mililitrosParameter, valor_presentacionParameter);
         }
     
-        public virtual int editarProduccion(Nullable<int> id, string codigo_lote, string fecha, string comentarios, Nullable<int> cantidad, Nullable<int> presentacion_id, Nullable<int> tipo_cerveza_id)
+        public virtual int editarProduccion(Nullable<int> id, string codigo_lote, Nullable<System.DateTime> fecha, string comentarios, Nullable<int> cantidad, Nullable<int> presentacion_id, Nullable<int> tipo_cerveza_id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("id", id) :
@@ -116,9 +116,9 @@ namespace DataLayer.Entity
                 new ObjectParameter("codigo_lote", codigo_lote) :
                 new ObjectParameter("codigo_lote", typeof(string));
     
-            var fechaParameter = fecha != null ?
+            var fechaParameter = fecha.HasValue ?
                 new ObjectParameter("fecha", fecha) :
-                new ObjectParameter("fecha", typeof(string));
+                new ObjectParameter("fecha", typeof(System.DateTime));
     
             var comentariosParameter = comentarios != null ?
                 new ObjectParameter("comentarios", comentarios) :
@@ -177,15 +177,15 @@ namespace DataLayer.Entity
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("guardarPresentacion", nombreParameter, mililitrosParameter, valor_presentacionParameter);
         }
     
-        public virtual int guardarProduccion(string codigo_lote, string fecha, string comentarios, Nullable<int> cantidad, Nullable<int> presentacion_id, Nullable<int> tipo_cerveza_id)
+        public virtual int guardarProduccion(string codigo_lote, Nullable<System.DateTime> fecha, string comentarios, Nullable<int> cantidad, Nullable<int> presentacion_id, Nullable<int> tipo_cerveza_id)
         {
             var codigo_loteParameter = codigo_lote != null ?
                 new ObjectParameter("codigo_lote", codigo_lote) :
                 new ObjectParameter("codigo_lote", typeof(string));
     
-            var fechaParameter = fecha != null ?
+            var fechaParameter = fecha.HasValue ?
                 new ObjectParameter("fecha", fecha) :
-                new ObjectParameter("fecha", typeof(string));
+                new ObjectParameter("fecha", typeof(System.DateTime));
     
             var comentariosParameter = comentarios != null ?
                 new ObjectParameter("comentarios", comentarios) :

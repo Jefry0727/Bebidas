@@ -97,7 +97,7 @@
     <FunctionImport Name="editarProduccion">
       <Parameter Name="id" Mode="In" Type="Int32" />
       <Parameter Name="codigo_lote" Mode="In" Type="String" />
-      <Parameter Name="fecha" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
       <Parameter Name="comentarios" Mode="In" Type="String" />
       <Parameter Name="cantidad" Mode="In" Type="Int32" />
       <Parameter Name="presentacion_id" Mode="In" Type="Int32" />
@@ -116,7 +116,7 @@
     </FunctionImport>
     <FunctionImport Name="guardarProduccion">
       <Parameter Name="codigo_lote" Mode="In" Type="String" />
-      <Parameter Name="fecha" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
       <Parameter Name="comentarios" Mode="In" Type="String" />
       <Parameter Name="cantidad" Mode="In" Type="Int32" />
       <Parameter Name="presentacion_id" Mode="In" Type="Int32" />

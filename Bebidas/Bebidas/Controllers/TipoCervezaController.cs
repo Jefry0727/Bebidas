@@ -50,8 +50,9 @@ namespace Bebidas.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tipo_cerveza.Add(tipo_cerveza);
-                db.SaveChanges();
+               // db.tipo_cerveza.Add(tipo_cerveza);
+                //db.SaveChanges();
+                db.guardarTipoCerveza(tipo_cerveza.nombre, tipo_cerveza.descripcion, tipo_cerveza.alcohol);
                 return RedirectToAction("Index");
             }
 
@@ -82,8 +83,9 @@ namespace Bebidas.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tipo_cerveza).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(tipo_cerveza).State = EntityState.Modified;
+               // db.SaveChanges();
+                db.editarTipoCerveza(tipo_cerveza.id, tipo_cerveza.nombre, tipo_cerveza.descripcion, tipo_cerveza.alcohol);
                 return RedirectToAction("Index");
             }
             return View(tipo_cerveza);
@@ -110,8 +112,9 @@ namespace Bebidas.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             tipo_cerveza tipo_cerveza = db.tipo_cerveza.Find(id);
-            db.tipo_cerveza.Remove(tipo_cerveza);
-            db.SaveChanges();
+            //db.tipo_cerveza.Remove(tipo_cerveza);
+           // db.SaveChanges();
+            db.borrarTipoCerveza(tipo_cerveza.id);
             return RedirectToAction("Index");
         }
 

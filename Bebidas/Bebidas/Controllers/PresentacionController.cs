@@ -14,6 +14,8 @@ namespace Bebidas.Controllers
     {
         private Entity_tallerBebidasEntities db = new Entity_tallerBebidasEntities();
 
+        
+
         // GET: /Presentacion/
         public ActionResult Index()
         {
@@ -50,8 +52,10 @@ namespace Bebidas.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.presentacion.Add(presentacion);
-                db.SaveChanges();
+                //db.presentacion.Add(presentacion);
+                //db.SaveChanges();
+
+                db.guardarPresentacion(presentacion.nombre, presentacion.mililitros, presentacion.valor_presentacion);
                 return RedirectToAction("Index");
             }
 
@@ -66,6 +70,7 @@ namespace Bebidas.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             presentacion presentacion = db.presentacion.Find(id);
+          //  presentacion presentacion = db.buscarProduccionV2();
             if (presentacion == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Bebidas.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(presentacion).State = EntityState.Modified;
-                db.SaveChanges();
+                db.editarPresentacion(presentacion.id,presentacion.nombre,presentacion.mililitros,presentacion.valor_presentacion);
+                //db.Entry(presentacion).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(presentacion);
@@ -110,8 +116,9 @@ namespace Bebidas.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             presentacion presentacion = db.presentacion.Find(id);
-            db.presentacion.Remove(presentacion);
-            db.SaveChanges();
+            //db.presentacion.Remove(presentacion);
+            //db.SaveChanges();
+            db.borrarPresentacion(presentacion.id);
             return RedirectToAction("Index");
         }
 
@@ -122,6 +129,13 @@ namespace Bebidas.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void guardar(String nombre,double mililitros, double valor_presentacion)
+        {
+
+           int i =  db.guardarPresentacion(nombre,mililitros,valor_presentacion);
+
         }
     }
 }
